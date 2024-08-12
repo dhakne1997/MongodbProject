@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.MongoUser;
+import com.kafkaProducer.KafkaProducerService;
 import com.service.MongoUserService;
 
 @RestController
@@ -21,6 +22,9 @@ public class MongoUserController {
     @Autowired
     private MongoUserService userService;
 
+    @Autowired
+    private KafkaProducerService kafkaProducerService;
+    
     @GetMapping
     public List<MongoUser> getAllUsers() {
         return userService.getAllUsers();
@@ -33,12 +37,14 @@ public class MongoUserController {
 
     @PostMapping
     public MongoUser createUser(@RequestBody MongoUser user) {
+    	kafkaProducerService.addUserRequest(user);
         return userService.createUser(user);
     }
 
     @PutMapping("/{id}")
     public MongoUser updateUser(@PathVariable String id, @RequestBody MongoUser user) {
         user.setId(id);
+        
         return userService.updateUser(user);
     }
 

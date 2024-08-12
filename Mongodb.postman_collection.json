@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "165dabe7-4cb6-4fb1-80b4-d21cee339728",
+		"name": "Mongodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9001/api/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"1\",\r\n  \"name\": \"b\",\r\n  \"email\": \"fg@gmail.com\",\r\n  \"age\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9001/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/api/users/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"2\",\r\n    \"name\": \"dhakne\",\r\n    \"email\": \"abc@gmail.com\",\r\n    \"age\": 28\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9001/api/users/2"
+			},
+			"response": []
+		}
+	]
+}
